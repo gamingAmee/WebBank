@@ -1,0 +1,15 @@
+﻿@model IEnumerable<WebBankMVC.Models.AccountVM>
+
+@{
+    ViewData["Title"] = "Deposit";
+}
+
+
+@foreach (var item in Model)
+{
+    <h1>@item.AccountNumber</h1>
+    <h1>@item.Name</h1>
+    <h1>@item.Balance</h1>
+    <h1>@item.AccountType</h1>
+}
+

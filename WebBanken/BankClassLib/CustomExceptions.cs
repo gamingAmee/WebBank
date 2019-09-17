@@ -5,9 +5,9 @@ using System.Text;
 
 namespace BankClassLib
 {
-    public class OvertrækException : Exception
+    public class OverdraftException : Exception
     {
-        public OvertrækException(string str) : base(str)
+        public OverdraftException(string str) : base(str)
         {
         }
     }

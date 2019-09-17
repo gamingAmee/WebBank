@@ -1,8 +1,18 @@
-﻿@{
+﻿@model BankClassLib.Bank
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+<div box-shadow">
+    <div>
+        <h1 class=" text-center">Welcome to  @Model.BankName</h1>
+        <p class="text-center">The bank has @Model.Deposits$ in Deposits</p>
+    </div>
+    <p>New customer? Create a new account <a class="text-center" asp-action="Create">here.</a></p>
+
 </div>
+
+
+

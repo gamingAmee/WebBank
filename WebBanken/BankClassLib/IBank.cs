@@ -7,14 +7,13 @@ namespace BankClassLib
 {
     public interface IBank
     {
-        double Beholdning { get; }
-        string BankNavn { get; }
-        int OpretKonto(string navn, KontoType type);
-        double Indsæt(int nr, double beløb);
-        double Hæv(int nr, double beløb);
-        Konto Saldo(int nr);
+        Bank GetBank();
+        int CreateAccount(string name, AccountType type);
+        double Deposit(int nr, double amount);
+        double Withdraw(int nr, double amount);
+        Account Balance(int nr);
         void RenteTilskrivning();
-        List<KontoListItem> KontoLookUpList();
-        List<KontoListItem> HentKontoList();
+        List<AccountListItem> AccountLookUpList();
+        List<AccountListItem> GetAccountList();
     }
 }

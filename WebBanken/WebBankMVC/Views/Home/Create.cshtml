@@ -1,0 +1,26 @@
+﻿@model WebBankMVC.Models.CustomerVM
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Opret kunde</h1>
+
+<form method="post">
+
+    <div class="row">
+        <label class="col-md-2" asp-for="Name"></label>
+        <input asp-for="Name" />
+    </div>
+    <div class="row">
+        <label class="col-md-2" asp-for="AccountType"></label>
+        <select asp-for="AccountType" asp-items="Html.GetEnumSelectList<CustomerVM.AccountTypes>()"></select>
+    </div>
+
+    <input type="submit" name="submit" value="Opret" />
+
+
+
+
+
+</form>
+
