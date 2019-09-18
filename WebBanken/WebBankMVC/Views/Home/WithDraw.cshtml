@@ -1,14 +1,13 @@
 ﻿@model WebBankMVC.Models.AccountVM
 @{
-    ViewData["Title"] = "Deposit";
+    ViewData["Title"] = "WithDraw";
 }
 
-<form asp-action="Deposit">
+<form asp-action="WithDraw">
     <div class="form-horizontal">
-        <h4>Deposit</h4>
+        <h4>WithDraw</h4>
         <hr />
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <label></label>
         <div class="form-group">
             <label class="col-md-2 control-label">Amount</label>
             <div class="col-md-10">
@@ -17,7 +16,7 @@
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Deposit" />
+                <input type="submit" value="With draw" />
             </div>
         </div>
     </div>

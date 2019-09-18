@@ -33,7 +33,11 @@
                             <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Deposit">Deposit</a>
+                            <a class="nav-link text-light" asp-controller="Home" asp-action="AccountList">List Of Accounts</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-controller="Home" asp-action="Rate">Interest rate</a>
                         </li>
                     </ul>
                 </div>
@@ -49,7 +53,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; @DateTime.Now.Year - WebBankMVC - <a asp-area="" asp-controller="Home" asp-action=""></a>
+            &copy; @DateTime.Now.Year - WebBankMVC
         </div>
     </footer>
 

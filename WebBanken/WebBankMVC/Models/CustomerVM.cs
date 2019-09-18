@@ -9,11 +9,13 @@ namespace WebBankMVC.Models
 {
     public class CustomerVM
     {
-        public enum AccountTypes { PayrollAccount, SavingAccount, Overdraft }
-        public int AccountNumber { get; set; }
-        [Display(Name = "Navn")]
+        [Display(Name = "Name")]
         public string Name { get; set; }
+
         [Display(Name = "AccountType")]
         public AccountType AccountType { get; set; }
+
+        public enum AccountTypes { PayrollAccount, SavingAccount, Overdraft }
+        public int AccountNumber { get; set; }
     }
 }

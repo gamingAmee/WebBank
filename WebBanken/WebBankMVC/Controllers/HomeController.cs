@@ -12,7 +12,7 @@ namespace WebBankMVC.Controllers
     public class HomeController : Controller
     {
         private readonly IBank repo;
-        
+
 
         public HomeController(IBank bankrepo)
         {
@@ -27,7 +27,6 @@ namespace WebBankMVC.Controllers
         [HttpPost]
         public IActionResult Create(CustomerVM customer)
         {
-            customer = new CustomerVM();
             customer.AccountNumber = repo.CreateAccount(customer.Name, customer.AccountType);
             return View("AccountConfirm", customer);
         }
@@ -38,18 +37,44 @@ namespace WebBankMVC.Controllers
             return View();
         }
 
-        [HttpPost]
-        public IActionResult Deposit(AccountVM account)
+        public IActionResult AccountList()
         {
-            account = new AccountVM();
-            account.Accounts = repo.GetAccountList();
-            return View(account);
+            List<AccountListItem> accountLists;
+            accountLists = repo.GetAccountList();
+            return View(accountLists);
         }
 
-        [HttpGet]
         public IActionResult Deposit()
         {
             return View();
+        }
+        [HttpPost]
+        public IActionResult Deposit(int id, AccountVM account)
+        {
+            account.AccountNumber = id;
+            repo.Deposit(account.AccountNumber, account.Balance);
+
+            return RedirectToAction("AccountList", account);
+        }
+
+        public IActionResult WithDraw()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult WithDraw(int id, AccountVM account)
+        {
+            account.AccountNumber = id;
+            repo.Withdraw(account.AccountNumber, account.Balance);
+
+            return RedirectToAction("AccountList", account);
+        }
+
+        public IActionResult Rate()
+        {
+            repo.RenteTilskrivning();
+            return RedirectToAction("AccountList");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

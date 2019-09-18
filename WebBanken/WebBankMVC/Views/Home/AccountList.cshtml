@@ -1,0 +1,59 @@
+﻿@model IEnumerable<BankClassLib.AccountListItem>
+
+@{
+    ViewData["Title"] = "List Of Accounts";
+}
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Account number
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Account type
+                </th>
+                <th>
+                    Balance
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.AccountNumber
+                       
+                    </td>
+                    <td>
+                        @item.Name
+                    </td>
+                    <td>
+                        @item.AccountType
+                    </td>
+                    <td>
+                        @item.Balance
+                    </td>
+                    <td>
+                        <a asp-action="Deposit" asp-route-id="@item.AccountNumber">Deposit</a> |
+
+                        @if (item.Balance <= 0)
+                        {
+                            <a asp-action="WithDraw" class=" btn disabled" asp-route-id="@item.AccountNumber">Withdraw</a>
+                        }
+                        else 
+                        { 
+                            <a asp-action="WithDraw" asp-route-id="@item.AccountNumber">Withdraw</a>                        
+                        }
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>

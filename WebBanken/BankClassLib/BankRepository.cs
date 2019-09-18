@@ -88,6 +88,7 @@ namespace BankClassLib
             return kontoList;
         }
 
+
         // Leverer en liste til at vise samtlige konti
         public List<AccountListItem> GetAccountList()
         {
@@ -104,5 +105,6 @@ namespace BankClassLib
             }
             return kontoList;
         }
+
     }
 }
